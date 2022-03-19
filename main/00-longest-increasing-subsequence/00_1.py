@@ -3,6 +3,7 @@ class Solution:
         self.longest = 0
 
     def LIS_helper(self, arr, index):
+        """Returns the length of the longest increasing subsequence including the element at index"""
         maximum_so_far = 1
 
         for i in range(0, index):
@@ -17,6 +18,7 @@ class Solution:
         return maximum_so_far
 
     def longest_increasing_subsequence(self, arr):
+        """Returns the length of the longest increasing subsequence"""
         self.LIS_helper(arr, len(arr)-1)
         return self.longest
 
@@ -25,18 +27,26 @@ class Solution:
 
 test_cases = [
     # [array, expected_result]
-    [[1, 2, 3, 4, 5], 5],
+    [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 10],
     [[10, 22, 9, 33, 21, 50, 41, 60, 80], 6],
     [[10, 9, 2, 5, 3, 7, 101, 18], 4],
     [[7, 7, 7, 7, 7, 7, 7], 1],
-    [[99, 44, 55, 2, 66, 3, 4, 5], 4]
+    [[99, 44, 55, 2, 66, 3, 4, 5], 4],
+    [[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15], 6],
+    [[3, 2, 1, 0], 1],
+    [[99], 1],
+    [[50, 3, 10, 7, 40, 80], 4],
+    [[11, 1, 12, 2, 13, 3, 14, 4, 15, 5, 16, 6], 6],
 ]
 
-failed = False
+is_failed = False
 for [arr, expected_result] in test_cases:
-    if Solution().longest_increasing_subsequence(arr) != expected_result:
-        failed = True
-        print("FAILED: arr:", arr, "expected_result:", expected_result)
+    actual_result = Solution().longest_increasing_subsequence(arr)
+    if actual_result != expected_result:
+        is_failed = True
+        print("FAILED: arr:", arr, "expected_result:",
+              expected_result, "actual_result:", actual_result)
+        break
 
-if not failed:
+if not is_failed:
     print("All test cases passed.")
