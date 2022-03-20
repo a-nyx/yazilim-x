@@ -7,8 +7,8 @@ class Solution:
         maximum_so_far = 1
 
         for i in range(0, index):
+            maximum_until_i = self.LIS_helper(arr, i)
             if arr[i] < arr[index]:
-                maximum_until_i = self.LIS_helper(arr, i)
                 if maximum_until_i + 1 > maximum_so_far:
                     maximum_so_far = maximum_until_i + 1
 
@@ -37,6 +37,7 @@ test_cases = [
     [[99], 1],
     [[50, 3, 10, 7, 40, 80], 4],
     [[11, 1, 12, 2, 13, 3, 14, 4, 15, 5, 16, 6], 6],
+    [[1, 3, 6, 7, 9, 4, 10, 5, 6], 6]
 ]
 
 is_failed = False
