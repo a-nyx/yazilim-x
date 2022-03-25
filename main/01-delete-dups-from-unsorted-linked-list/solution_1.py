@@ -1,4 +1,3 @@
-# Solution 1: O(n^2) time, O(1) space
 class Solution1:
     def delete_dups(self, linkedList):
         current = linkedList.head
