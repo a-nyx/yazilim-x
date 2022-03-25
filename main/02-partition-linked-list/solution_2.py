@@ -1,4 +1,3 @@
-# Solution 2: O(n) time, O(1) space???
 class Solution2:
     def partition(self, linkedList, value):
         beforeStart = beforeEnd = afterStart = afterEnd = None
