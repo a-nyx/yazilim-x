@@ -38,7 +38,7 @@ test_cases = [
 is_failed = False
 for [linked_list_data, expected_data] in test_cases:
     ll = LinkedList(linked_list_data)
-    solution.delete_dups(ll)
+    solution.delete_dups(ll.head)
     if ll.compare_with_values(expected_data) is False:
         is_failed = True
         print("FAILED: \ninitial:", linked_list_data,

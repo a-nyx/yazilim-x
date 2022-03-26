@@ -1,6 +1,6 @@
 class Solution1:
-    def delete_dups(self, linkedList):
-        current = linkedList.head
+    def delete_dups(self, head):
+        current = head
         while current and current.next:
             runner = current
             while runner.next:
