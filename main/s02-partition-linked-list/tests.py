@@ -36,6 +36,18 @@ test_cases = [
 
 ]
 
+
+# printing for solution 1
+# for [linked_list_data, value, expected_data] in test_cases:
+#     ll = LinkedList(linked_list_data)
+#     solution.partition(ll, value)
+#     print("initial:", linked_list_data,
+#             "\nvalue:", value,
+#             "\nreturn:", ll, "\n\n")
+
+
+#  Testing for solution 2
+
 is_failed = False
 for [linked_list_data, value, expected_data] in test_cases:
     ll = LinkedList(linked_list_data)

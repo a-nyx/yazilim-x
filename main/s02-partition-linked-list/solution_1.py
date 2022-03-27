@@ -1,16 +1,15 @@
 class Solution1:
     def partition(self, linkedList, value):
-        node = linkedList.head
-        head = node
+        head = linkedList.head
+        current = head
         prev = None
-        while node:
-            if node.data < value and prev:
-                prev.next = node.next
-                node.next = head
-                head = node
-                node = prev.next
+        while current:
+            if not prev or current.data >= value:
+                prev = current
+                current = current.next
             else:
-                prev = node
-                node = node.next
-
+                prev.next = current.next
+                current.next = head
+                head = current
+                current = prev.next
         linkedList.head = head

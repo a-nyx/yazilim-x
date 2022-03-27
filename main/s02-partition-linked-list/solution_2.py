@@ -1,25 +1,26 @@
 class Solution2:
     def partition(self, linkedList, value):
         beforeStart = beforeEnd = afterStart = afterEnd = None
-        node = linkedList.head
-        while node:
-            next = node.next
-            node.next = None
-            if node.data < value:
+        current = linkedList.head
+
+        while current:
+            next = current.next
+            current.next = None
+            if current.data < value:
                 if not beforeStart:
-                    beforeStart = node
-                    beforeEnd = node
+                    beforeStart = current
+                    beforeEnd = current
                 else:
-                    beforeEnd.next = node
-                    beforeEnd = node
+                    beforeEnd.next = current
+                    beforeEnd = current
             else:
                 if not afterStart:
-                    afterStart = node
-                    afterEnd = node
+                    afterStart = current
+                    afterEnd = current
                 else:
-                    afterEnd.next = node
-                    afterEnd = node
-            node = next
+                    afterEnd.next = current
+                    afterEnd = current
+            current = next
 
         if not beforeStart:
             linkedList.head = afterStart
