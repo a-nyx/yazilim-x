@@ -1,6 +1,11 @@
 const rotateMatrix = matrix => {
     // Mirror the matrix horizontally
-    matrix.reverse();
+    // matrix.reverse();
+    for (let i = 0; i < matrix.length / 2; i++) {
+        let temp = matrix[i];
+        matrix[i] = matrix[matrix.length - i - 1];
+        matrix[matrix.length - i - 1] = temp;
+    }
 
     // Transpose (Flip diagonally) the matrix
     for (let row = 0; row < matrix.length; row++) {
