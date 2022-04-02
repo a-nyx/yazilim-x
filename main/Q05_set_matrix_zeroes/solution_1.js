@@ -1,16 +1,4 @@
 const setMatrixZeroes = matrix => {
-    const zeroRow = r => {
-        for (let c = 0; c < matrix[r].length; c++) {
-            matrix[r][c] = 0;
-        }
-    };
-
-    const zeroCol = c => {
-        for (let r = 0; r < matrix.length; r++) {
-            matrix[r][c] = 0;
-        }
-    };
-
     const rows = new Set();
     const cols = new Set();
 
