@@ -2,7 +2,6 @@
 
 $examples = [
     // target int: number array
-    // todo: fix
     11 => [3, 5, 8],
     80 => [100, 10, 50, 30],
     66 => [33, 0, 33],
