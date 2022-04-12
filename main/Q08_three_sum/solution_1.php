@@ -31,6 +31,32 @@ function three_sum($nums)
     return $answers;
 }
 
+function three_sum_2($nums)
+{
+    // find all triplets
+    $answers = [];
+    sort($nums);
+    for ($x = 0; $x < count($nums); $x++) {
+        if($x > 0 && $nums[$x] == $nums[$x - 1]) {
+            continue;
+        }
+        for ($y = $x + 1; $y < count($nums); $y++) {
+            if ($y > $x + 1 && $nums[$y] == $nums[$y - 1]) {
+                continue;
+            }
+            // binary_search instead?
+            for ($z = $y + 1; $z < count($nums); $z++) {
+                if ($nums[$x] + $nums[$y] + $nums[$z] == 0) {
+                    $answers[] = [$nums[$x], $nums[$y], $nums[$z]];
+                    break;
+                }
+            }
+        }
+    }
+
+    return $answers;
+}
+
 
 foreach ($examples as $example) {
     $results = three_sum($example);

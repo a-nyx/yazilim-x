@@ -2,14 +2,26 @@
 
 include 'examples.php';
 
-function three_sum($nums, $target)
+function three_sum($nums)
+{
+    return null;
+}
+
+function two_sum($nums, $start_index, $target)
 {
     return null;
 }
 
 
-foreach ($examples as $target => $nums) {
-    echo "input: [" . implode(',', $nums) . "] & " . $target . PHP_EOL
-        . "answer: [" . implode(',', three_sum($nums, $target)) . "]" . PHP_EOL
-        . '---------------' . PHP_EOL;
+foreach ($examples as $example) {
+    $results = three_sum($example);
+    $answers = "";
+    foreach ($results as $answer) {
+        $answers .= PHP_EOL . implode(",", $answer);
+    }
+    $output = "input: [" . implode(',', $example) . "]" . PHP_EOL
+        . "answers: " . $answers . PHP_EOL
+        . '---------------';
+
+    echo $output;
 }
