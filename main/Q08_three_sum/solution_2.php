@@ -12,23 +12,27 @@ function three_sum($nums)
             continue;
         }
 
-        $subtotal = 0 - $nums[$i];
         $left = $i + 1;
         $right = count($nums) - 1;
 
         while($left < $right) {
-            if($nums[$left] + $nums[$right] == $subtotal) {
+            $total = $nums[$i] + $nums[$left] + $nums[$right];
+            if($total == 0) {
                 $answers[] = [$nums[$i], $nums[$left], $nums[$right]];
                 $left++;
                 $right--;
                 while($left < $right && $nums[$left] == $nums[$left-1]) {
                     $left++;
                 }
-            } else if($nums[$left] + $nums[$right] < $subtotal) {
+            } else if($total < 0) {
                 $left++;
             } else {
                 $right--;
             }
+        }
+
+        if ($nums[$i] == 0) {
+            break;
         }
     }
 
