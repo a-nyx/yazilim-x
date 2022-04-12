@@ -4,12 +4,36 @@ include 'examples.php';
 
 function three_sum($nums)
 {
-    return null;
-}
+    sort($nums);
+    if(count($nums) < 3 || $nums[0] > 0 || $nums[count($nums)-1] < 0) {
+        return [];
+    }
+    if(count($nums) == 3 && array_sum($nums) == 0) {
+        return [$nums];
+    }
 
-function two_sum($nums, $start_index, $target)
-{
-    return null;
+    $answers = [];
+
+    for($i = 0; $i < count($nums); $i++){
+        if($i > 0 && $nums[$i] == $nums[$i - 1]){
+            continue;
+        }
+
+        $number_positions = [];
+        $two_sum = 0 - $nums[$i];
+
+        for ($k = $i + 1; $k < count($nums); $k++) {
+            $last = $two_sum - $nums[$k];
+            if (isset($number_positions[$last])) {
+                $answers[] = [$nums[$i], $nums[$k], $last];
+                while ($k < count($nums) - 1 && $nums[$k] == $nums[$k + 1]) {
+                    $k++;
+                }
+            }
+            $number_positions[$nums[$k]] = $k;
+        }
+    }
+    return $answers;
 }
 
 
