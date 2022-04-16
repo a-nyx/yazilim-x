@@ -20,10 +20,9 @@ function three_sum($nums)
         }
 
         $number_positions = [];
-        $two_sum = 0 - $nums[$i];
 
         for ($k = $i + 1; $k < count($nums); $k++) {
-            $last = $two_sum - $nums[$k];
+            $last = 0 - $nums[$i] - $nums[$k];
             if (isset($number_positions[$last])) {
                 $answers[] = [$nums[$i], $nums[$k], $last];
                 while ($k < count($nums) - 1 && $nums[$k] == $nums[$k + 1]) {
