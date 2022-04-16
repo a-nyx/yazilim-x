@@ -31,7 +31,7 @@ function three_sum($nums)
             }
         }
 
-        if ($nums[$i] == 0) {
+        if ($nums[$i] >= 0) {
             break;
         }
     }
