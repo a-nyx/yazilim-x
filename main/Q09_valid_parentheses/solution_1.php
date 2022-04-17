@@ -2,21 +2,28 @@
 
 include 'examples.php';
 
-function check_parantheses()
+function check_parantheses($str)
 {
-    //todo
+    if (strlen($str) % 2 != 0) return false;
+
+    $open = 0;
+    for ($i = 0; $i < strlen($str); $i++) {
+        // if ($str[$i] == '(') {
+        //     $open++;
+        // } else {
+        //     $open--;
+        // }
+        $open += $str[$i] == '(' ? 1 : -1;
+        if ($open < 0) return false;
+    }
+    return $open == 0;
 }
 
+foreach ($examples_one_type as $example => $expected) {
+    $actual = check_parantheses($example);
 
-foreach ($examples as $example) {
-    $results = three_sum($example);
-    $answers = "";
-    foreach ($results as $answer) {
-        $answers .= PHP_EOL . implode(",", $answer);
-    }
-    $output = "input: [" . implode(',', $example) . "]" . PHP_EOL
-        . "answers: " . $answers . PHP_EOL
-        . '---------------';
-
-    echo $output;
+    echo "input: " . $example . PHP_EOL
+        . "expected: " . ($expected ? 'valid' : 'not valid') . PHP_EOL
+        . "actual: " . ($actual ? 'valid' : 'not valid') . PHP_EOL
+        . '---------------' . PHP_EOL;
 }

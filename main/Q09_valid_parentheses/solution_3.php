@@ -2,21 +2,33 @@
 
 include 'examples.php';
 
-function check_parantheses()
+function check_parantheses($str)
 {
-    //todo
+    $pairs = [
+        '(' => ')',
+        '{' => '}',
+        '[' => ']'
+    ];
+
+    // use input also as stack?
+    $stack = [];
+
+    for ($i = 0; $i < strlen($str); $i++) {
+        if (isset($pairs[$str[$i]])) {
+            $stack[] = $pairs[$str[$i]];
+        } else if ($str[$i] != array_pop($stack)) {
+            return false;
+        }
+    }
+
+    return empty($stack);
 }
 
+foreach ($examples as $example => $expected) {
+    $actual = check_parantheses($example);
 
-foreach ($examples as $example) {
-    $results = three_sum($example);
-    $answers = "";
-    foreach ($results as $answer) {
-        $answers .= PHP_EOL . implode(",", $answer);
-    }
-    $output = "input: [" . implode(',', $example) . "]" . PHP_EOL
-        . "answers: " . $answers . PHP_EOL
-        . '---------------';
-
-    echo $output;
+    echo "input: " . $example . PHP_EOL
+        . "expected: " . ($expected ? 'valid' : 'not valid') . PHP_EOL
+        . "actual: " . ($actual ? 'valid' : 'not valid') . PHP_EOL
+        . '---------------' . PHP_EOL;
 }

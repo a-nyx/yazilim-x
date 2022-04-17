@@ -2,21 +2,28 @@
 
 include 'examples.php';
 
-function check_parantheses()
+function check_parantheses($str)
 {
-    //todo
+    // while (str_contains($str, '()') || str_contains($str, '[]') || str_contains($str, '{}')) {
+    //     $str = str_replace('()', '', $str);
+    //     $str = str_replace('{}', '', $str);
+    //     $str = str_replace('[]', '', $str);
+    // }
+
+    // return strlen($str) == 0;
+
+    do {
+        $str = str_replace(['()', '[]', '{}'], '', $str, $count);
+    } while ($count);
+
+    return empty($str);
 }
 
+foreach ($examples as $example => $expected) {
+    $actual = check_parantheses($example);
 
-foreach ($examples as $example) {
-    $results = three_sum($example);
-    $answers = "";
-    foreach ($results as $answer) {
-        $answers .= PHP_EOL . implode(",", $answer);
-    }
-    $output = "input: [" . implode(',', $example) . "]" . PHP_EOL
-        . "answers: " . $answers . PHP_EOL
-        . '---------------';
-
-    echo $output;
+    echo "input: " . $example . PHP_EOL
+        . "expected: " . ($expected ? 'valid' : 'not valid') . PHP_EOL
+        . "actual: " . ($actual ? 'valid' : 'not valid') . PHP_EOL
+        . '---------------' . PHP_EOL;
 }

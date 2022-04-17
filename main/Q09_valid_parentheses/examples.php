@@ -1,5 +1,18 @@
 <?php
 
+$examples_one_type = [
+    '()' => true,
+    '((()))()' => true,
+    '(()())' => true,
+    ')()' => false,
+    '())' => false,
+    '()()()' => true
+];
+
 $examples = [
-    // todo
+    '()[]{}' => true,
+    '[{()}]' => true,
+    '[[{}][()]]' => true,
+    '[]}' => false,
+    '()[({])}[]' => false
 ];
