@@ -1,28 +1,41 @@
+package Q10_generate_parentheses;
+
 import java.util.*;
 
 public class Solution1 {
-    public List<String> generateParentheses(int n) {
-        List<String> answers = new ArrayList<String>();
-
-        generateAll(answers, n);
-        deleteInvalid(answers);
-
-        return answers;
+    public static List<String> generateParentheses(int n) {
+        List<String> list = new ArrayList<String>();
+        generateAll(list, n);
+        deleteInvalid(list);
+        return list;
     }
 
-    public void generateAll(List<String> arr, int n) {
+    public static void generateAll(List<String> list, int n) {
         int amount = (int) Math.pow(2, 2 * n);
         for (int i = 0; i < amount; i++) {
-            arr.add(binaryToString(i, n));
+            list.add(binaryToString(i, n));
         }
     }
 
-    public void deleteInvalid(List<String> arr) {
-        for (int i = 0; i < arr.size(); i++) {
+    public static String binaryToString(int binary, int n) {
+        char[] chars = new char[2 * n];
+        for (int i = 0; i < 2 * n; i++) {
+            if ((binary & 1) == 1) {
+                chars[i] = '(';
+            } else {
+                chars[i] = ')';
+            }
+            binary = binary >> 1;
+        }
+        return new String(chars);
+    }
+
+    public static void deleteInvalid(List<String> list) {
+        for (int i = 0; i < list.size(); i++) {
             int open = 0;
             boolean shouldDelete = false;
-            for (int k = 0; k < arr.get(i).length(); k++) {
-                if (arr.get(i).charAt(k) == '(') {
+            for (int k = 0; k < list.get(i).length(); k++) {
+                if (list.get(i).charAt(k) == '(') {
                     open++;
                 } else {
                     open--;
@@ -36,22 +49,9 @@ public class Solution1 {
                 shouldDelete = true;
             }
             if (shouldDelete) {
-                arr.remove(i);
+                list.remove(i);
                 i--;
             }
         }
     }
-
-    public String binaryToString(int binary, int n) {
-        String str = "";
-        for (int i = 0; i < 2 * n; i++) {
-            if (((binary >> i) & 1) == 1) {
-                str += '(';
-            } else {
-                str += ')';
-            }
-        }
-        return str;
-    }
-
 }
