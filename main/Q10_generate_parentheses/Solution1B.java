@@ -2,7 +2,7 @@ package Q10_generate_parentheses;
 
 import java.util.*;
 
-public class Solution1 {
+public class Solution1B {
     public static List<String> generateParentheses(int n) {
         List<String> list = new ArrayList<String>();
         generateAll(list, n);
