@@ -1,4 +1,5 @@
 package Q10_generate_parentheses;
+
 import java.util.*;
 
 public class Tester {
@@ -6,7 +7,7 @@ public class Tester {
         for (int i = 1; i < 5; i++) {
             List<String> list = Solution1.generateParentheses(i);
             System.out.println("---------------");
-            System.out.println("n: " + i);
+            System.out.println("n: " + i + " => size: " + list.size());
             System.out.println(String.join("\n", list));
         }
     }
