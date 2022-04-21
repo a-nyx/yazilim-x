@@ -5,7 +5,8 @@ import java.util.*;
 public class Solution1B {
     public static List<String> generateParentheses(int n) {
         List<String> list = new ArrayList<String>();
-        generateAll(list, new char[2*n], 0);
+        // generateAll(list, new char[2*n], 0);
+        generateAllIterative(list, n);
         return list;
     }
 
@@ -40,5 +41,25 @@ public class Solution1B {
             return false;
         }
         return true;
+    }
+
+    public static void generateAllIterative(List<String> list, int n) {
+        list.add(")");
+        list.add("(");
+
+        for(int i = 1; i < 2 * n; i++){
+            int current_length = list.size();
+            for(int k = 0; k < current_length; k++){
+                String s1 = list.get(0) + "(";
+                String s2 = list.get(0) + ")";
+                if(i < 2*n - 1 || isValid(s1)){
+                    list.add(s1);
+                }
+                if(i < 2*n - 1 || isValid(s2)){
+                    list.add(s2);
+                }
+                list.remove(0);
+            }
+        }
     }
 }
