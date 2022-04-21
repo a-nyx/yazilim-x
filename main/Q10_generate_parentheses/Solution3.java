@@ -5,39 +5,24 @@ import java.util.*;
 public class Solution3 {
     public static List<String> generateParentheses(int n) {
         List<String> list = new ArrayList<String>();
-
-        if(n == 0){
-            list.add("");
-        }
-
-        for(int k = 0; k < n; k++){
-            for(String left : generateParentheses(k)){
-                for(String inside : generateParentheses(n-k-1)){
-                    list.add(left + "(" + inside + ")");
-                }
-            }
-        }
-
+        backtrack(n, list, new char[2 * n], 0, 0);
         return list;
     }
 
-    public static List<String> generateParentheses(int n) {
-        Map<Integer,List<String>> solutions = new HashMap<Integer,List<String>>();
-        solutions.put(0, Arrays.asList(""));
-
-        for(int k = 1; k <= n; k++){
-            List<String> list = new ArrayList<String>();
-            for(int i = 0; i < k; i++){
-                for(String left : solutions.get(i)){
-                    for(String inside : solutions.get(k-i-1)){
-                        list.add(left + "(" + inside + ")");
-                    }
-                }
-            }
-
-            solutions.put(k, list);
+    public static void backtrack(int n, List<String> list, char[] chars, int open, int close) {
+        if (open + close == chars.length) {
+            list.add(new String(chars));
+            return;
         }
 
-        return solutions.get(n);
+        if (open < n) {
+            chars[open + close] = '(';
+            backtrack(n, list, chars, open + 1, close);
+        }
+
+        if (close < open) {
+            chars[open + close] = ')';
+            backtrack(n, list, chars, open, close + 1);
+        }
     }
 }
