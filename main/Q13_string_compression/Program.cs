@@ -4,12 +4,11 @@
   {
     public static void Main(string[] args)
     {
-      const string input = "abbccccccde";
+      char[] input = { 'a', 'a', 'b', 'b', 'c', 'c', 'c' };
+      Console.WriteLine("Input:\t" + string.Join("", input));
 
-      Solution2 solution = new Solution2();
-      string compressed = solution.Compress();
-
-      Console.WriteLine(compressed);
+      Solution1.Compress(input);
+      Console.WriteLine("Output:\t" + string.Join("", input));
     }
   }
 }

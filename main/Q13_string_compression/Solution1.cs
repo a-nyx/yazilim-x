@@ -1,6 +1,8 @@
 public class Solution1
 {
-  public void hello(){
-    System.Console.WriteLine("Hello World!");
+  public static int Compress(char[] chars)
+  {
+    chars[1] = 'P';
+    return 11;
   }
 }
