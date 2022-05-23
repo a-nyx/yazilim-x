@@ -1,7 +1,7 @@
 public class Solution2
 {
-  public static int Compress(char[] chars)
+  public int Compress(char[] arr)
   {
-    return 11;
+
   }
 }
