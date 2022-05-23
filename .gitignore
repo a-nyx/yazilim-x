@@ -1,4 +1,16 @@
+# Mac
 .DS_Store
+
+# Python
 __pycache__/
+
+# Java
 *.class
+
+# My files
 **/Q*.md
+
+# C#
+bin/
+obj/
+*.csproj
