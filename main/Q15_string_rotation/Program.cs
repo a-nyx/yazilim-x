@@ -5,7 +5,8 @@
     string[][] to_be_true = {
       new string[]{"abcde", "cdeab"},
       new string[]{"haha", "ahah"},
-      new string[]{"elma", "mael"}
+      new string[]{"elma", "mael"},
+      new string[]{"bbbacddceeb", "ceebbbbacdd"}
     };
 
     string[][] to_be_false = {

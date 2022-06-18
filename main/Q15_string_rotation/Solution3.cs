@@ -2,8 +2,8 @@ public class Solution3
 {
   const int MOD = 1_000_000_007;
   const int PRIME = 113;
-  const int PRIME_INVERSE = 893805316;
-  int power = 1;
+  const int PRIME_INVERSE = 893_805_316; // pow(P, MOD-2, MOD)
+  long power = 1;
 
   public bool RotateString(string s1, string s2)
   {
@@ -15,7 +15,13 @@ public class Solution3
 
     for (int i = 0; i < s1.Length; i++)
     {
-      if (hashS1 == hashS2 && s1.Equals(s2)) return true;
+      if (hashS1 == hashS2)
+      {
+        if (s2.Equals(s1.Substring(i) + s1.Substring(0, i)))
+        {
+          return true;
+        }
+      }
       hashS1 = UpdateHash(s1[i], hashS1);
     }
 
@@ -26,13 +32,11 @@ public class Solution3
   {
     long hash = 0;
     power = 1;
-
     foreach (char c in s)
     {
       hash = (hash + power * c) % MOD;
       power = power * PRIME % MOD;
     }
-
     return hash;
   }
 
@@ -45,3 +49,7 @@ public class Solution3
     return hash;
   }
 }
+
+// Credits:
+// Approach #3: https://leetcode.com/problems/rotate-string/solution/
+// Magic: https://en.wikipedia.org/wiki/Rolling_hash#Polynomial_rolling_hash
