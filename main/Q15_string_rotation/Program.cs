@@ -19,22 +19,26 @@
     string[][] tests;
     bool expected_result;
 
-    for (int i = 0; i < 2; i++){
-
-      if(i == 0){
+    for (int i = 0; i < 2; i++)
+    {
+      if (i == 0)
+      {
         tests = to_be_true;
         expected_result = true;
-      }else{
+      }
+      else
+      {
         tests = to_be_false;
         expected_result = false;
       }
 
       foreach (string[] test in tests)
       {
-        bool actual_result = new Solution4().RotateString(test[0], test[1]);
+        bool actual_result = new Solution3().RotateString(test[0], test[1]);
         String test_result = actual_result == expected_result ? "PASSED" : "FAILED";
 
-        if (actual_result != expected_result) {
+        if (actual_result != expected_result)
+        {
           isSuccessful = false;
         }
 
