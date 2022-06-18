@@ -31,7 +31,7 @@
 
       foreach (string[] test in tests)
       {
-        bool actual_result = new Solution3().RotateString(test[0], test[1]);
+        bool actual_result = new Solution4().RotateString(test[0], test[1]);
         String test_result = actual_result == expected_result ? "PASSED" : "FAILED";
 
         if (actual_result != expected_result) {
