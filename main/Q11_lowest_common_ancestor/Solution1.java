@@ -1,14 +1,5 @@
 public class Solution1 {
     public TreeNode findLCA(TreeNode root, TreeNode p, TreeNode q) {
-
-        if (!contain(root, p) || !contain(root, q)) {
-            return null;
-        }
-
-        return lcaHelper(root, p, q);
-    }
-
-    public TreeNode lcaHelper(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || root == p || root == q)
             return root;
 
@@ -19,7 +10,7 @@ public class Solution1 {
             return root;
 
         TreeNode next_root = is_q_on_left ? root.left : root.right;
-        return lcaHelper(next_root, p, q);
+        return findLCA(next_root, p, q);
     }
 
     public boolean contain(TreeNode root, TreeNode x) {
