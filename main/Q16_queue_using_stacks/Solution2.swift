@@ -1,6 +1,6 @@
 class MyQueue2 {
-    private var s_front: Stack = Stack()
-    private var s_rear: Stack = Stack()
+    private var s_front: Stack = .init()
+    private var s_rear: Stack = .init()
 
     var description: String {
         return "Front: " + s_front.description + " Rear: " + s_rear.description
@@ -21,7 +21,9 @@ class MyQueue2 {
 
     func peek() -> Int {
         if s_front.isEmpty {
-            return s_rear.topItem
+            while !s_rear.isEmpty {
+                s_front.push(s_rear.pop())
+            }
         }
         return s_front.topItem
     }
