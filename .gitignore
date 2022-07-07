@@ -10,9 +10,6 @@ __pycache__/
 # Java
 *.class
 
-# Swift
-main
-
 # C#
 bin/
 obj/
