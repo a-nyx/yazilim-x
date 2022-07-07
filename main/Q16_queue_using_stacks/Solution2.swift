@@ -1,6 +1,6 @@
 class MyQueue2 {
-    private var s_front: Stack = .init()
-    private var s_rear: Stack = .init()
+    private var s_front: Stack = Stack()
+    private var s_rear: Stack = Stack()
 
     var description: String {
         return "Front: " + s_front.description + " Rear: " + s_rear.description
