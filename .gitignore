@@ -1,14 +1,17 @@
 # Mac
 .DS_Store
 
+# My files
+**/Q*.md
+
 # Python
 __pycache__/
 
 # Java
 *.class
 
-# My files
-**/Q*.md
+# Swift
+main
 
 # C#
 bin/
