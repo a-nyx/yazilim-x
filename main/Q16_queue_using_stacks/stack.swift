@@ -9,6 +9,10 @@ struct Stack {
         return items.isEmpty
     }
 
+    var description: String {
+        return items.description
+    }
+
     mutating func push(_ item: Int) {
         items.append(item)
     }

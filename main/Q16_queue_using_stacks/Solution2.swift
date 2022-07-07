@@ -1,11 +1,63 @@
-class MyQueue {
-    init() {}
+class MyQueue2 {
+    private var s_front: Stack = .init()
+    private var s_rear: Stack = .init()
 
-    func push(_: Int) {}
+    var description: String {
+        return "Front: " + s_front.description + " Rear: " + s_rear.description
+    }
 
-    func pop() -> Int {}
+    func push(_ x: Int) {
+        s_rear.push(x)
+    }
 
-    func peek() -> Int {}
+    func pop() -> Int {
+        if s_front.isEmpty {
+            while !s_rear.isEmpty {
+                s_front.push(s_rear.pop())
+            }
+        }
+        return s_front.pop()
+    }
 
-    func empty() -> Bool {}
+    func peek() -> Int {
+        if s_front.isEmpty {
+            return s_rear.topItem
+        }
+        return s_front.topItem
+    }
+
+    func empty() -> Bool {
+        return s_front.isEmpty && s_rear.isEmpty
+    }
 }
+
+// Solution without using stacks. Using array instead.
+
+// class MyQueue {
+//     private var s_front: [Int] = []
+//     private var s_rear: [Int] = []
+
+//     func push(_ x: Int) {
+//         s_rear.append(x)
+//     }
+
+//     func pop() -> Int {
+//         if s_front.isEmpty {
+//             while !s_rear.isEmpty {
+//                 s_front.append(s_rear.removeLast())
+//             }
+//         }
+//         return s_front.removeLast()
+//     }
+
+//     func peek() -> Int {
+//         if s_front.isEmpty {
+//             return s_rear[0]
+//         }
+//         return s_front[s_front.endIndex - 1]
+//     }
+
+//     func empty() -> Bool {
+//         return s_front.isEmpty && s_rear.isEmpty
+//     }
+// }
