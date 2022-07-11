@@ -9,11 +9,6 @@ struct Stack {
         return items.isEmpty
     }
 
-    // size needed for solution 2
-    var size: Int {
-        return items.count
-    }
-
     var description: String {
         return items.description
     }
@@ -24,5 +19,10 @@ struct Stack {
 
     mutating func pop() -> Int {
         return items.removeLast()
+    }
+
+    // size needed for solution 2
+    var size: Int {
+        return items.count
     }
 }

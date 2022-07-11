@@ -24,8 +24,8 @@ class MinStack2 {
     stack.isEmpty ? -1 : minsWithIndex.last![0]
   }
 
-  var size: Int {
-    return stack.size
+  var description: String {
+    return stack.description
   }
 }
 
@@ -57,5 +57,9 @@ class MinStack2 {
 
 //   func getMin() -> Int {
 //     minSoFar
+//   }
+
+//   var description: String {
+//     return stack.description
 //   }
 // }

@@ -20,8 +20,8 @@ class MinStack1 {
     mins.topItem
   }
 
-  var size: Int {
-    return stack.size
+  var description: String {
+    return stack.description
   }
 }
 
@@ -44,5 +44,9 @@ class MinStack1 {
 
 //   func getMin() -> Int {
 //     stack.last!.min
+//   }
+
+//   var description: String {
+//     return stack.description
 //   }
 // }
