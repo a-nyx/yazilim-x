@@ -1,6 +1,6 @@
 class MinStack {
-  private var stack: Stack = Stack()
-  private var mins: Stack = Stack()
+  private var stack: Stack = .init()
+  private var mins: Stack = .init()
 
   func push(_ val: Int) {
     mins.push(mins.isEmpty ? val : min(mins.topItem, val))
