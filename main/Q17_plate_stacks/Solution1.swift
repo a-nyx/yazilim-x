@@ -1,9 +1,44 @@
-class DinnerPlates {
-  init(_ capacity: Int) {}
+class MinStack {
+  private var stack: Stack = Stack()
+  private var mins: Stack = Stack()
 
-  func push(_ val: Int) {}
+  func push(_ val: Int) {
+    mins.push(mins.isEmpty ? val : min(mins.topItem, val))
+    stack.push(val)
+  }
 
-  func pop() -> Int {}
+  func pop() -> Int {
+    mins.pop()
+    return stack.pop()
+  }
 
-  func popAtStack(_ index: Int) -> Int {}
+  func top() -> Int {
+    stack.topItem
+  }
+
+  func getMin() -> Int {
+    mins.topItem
+  }
 }
+
+// ARRAY SOLUTION
+
+// class MinStack {
+//   private var stack: [(val: Int, min: Int)] = []
+
+//   func push(_ val: Int) {
+//     stack.append((val, min(stack.isEmpty ? Int.max : stack.last!.min, val)))
+//   }
+
+//   func pop() {
+//     stack.removeLast().val
+//   }
+
+//   func top() -> Int {
+//     stack.last!.val
+//   }
+
+//   func getMin() -> Int {
+//     stack.last!.min
+//   }
+// }
