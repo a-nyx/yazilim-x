@@ -31,7 +31,7 @@ class MinStack2 {
 
 // KEEP MINS IN THE SAME STACK
 
-// class MinStack {
+// class MinStack2 {
 //   private var stack: Stack = .init()
 //   private var minSoFar: Int = .max
 
