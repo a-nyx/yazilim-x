@@ -1,4 +1,4 @@
-class MinStack {
+class MinStack2 {
   private var stack: Stack = .init()
   private var minsWithIndex: [[Int]] = []
 
@@ -21,7 +21,11 @@ class MinStack {
   }
 
   func getMin() -> Int {
-    minsWithIndex.last![0]
+    stack.isEmpty ? -1 : minsWithIndex.last![0]
+  }
+
+  var size: Int {
+    return stack.size
   }
 }
 

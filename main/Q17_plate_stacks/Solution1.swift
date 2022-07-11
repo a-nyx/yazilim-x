@@ -1,4 +1,4 @@
-class MinStack {
+class MinStack1 {
   private var stack: Stack = .init()
   private var mins: Stack = .init()
 
@@ -18,6 +18,10 @@ class MinStack {
 
   func getMin() -> Int {
     mins.topItem
+  }
+
+  var size: Int {
+    return stack.size
   }
 }
 
